@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Aidan Moss.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -69,6 +69,18 @@ def run_test_draw_parallel_lines():
 
 
 def draw_parallel_lines(n, point, length, window):
+    y = point.y
+    x = point.x
+    for k in range(n+1):
+        end = rg.Point(x + length, y)
+        line=rg.Line(rg.Point(x,y),end)
+        y = y+30
+        line.attach_to(window)
+        window.render()
+
+
+
+
     """
     What comes in: The four arguments are:
       -- A positive integer n.
@@ -96,7 +108,7 @@ def draw_parallel_lines(n, point, length, window):
       :type window: rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -134,6 +146,16 @@ def run_test_draw_lines():
 
 
 def draw_lines(n, point, window):
+    y = point.y
+    x = point.x
+    y=y-100
+    z= 200//n
+    for k in range(n):
+        end = rg.Point(x + 100, y)
+        line = rg.Line(rg.Point(x, y), end)
+        y = y + z
+        line.attach_to(window)
+        window.render()
     """
     What comes in: The three arguments are:
       -- A integer n that is at least 2.
