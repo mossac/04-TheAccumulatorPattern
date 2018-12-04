@@ -281,13 +281,11 @@ def run_test_draw_lines_from_rectangles():
 
 def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     rectangle1.attach_to(window)
-    R1_color = rectangle1.fill_color
     x1 = rectangle1.corner_1.x
     y1 = rectangle1.corner_1.y
     x2 = rectangle1.corner_2.x
     y2 = rectangle1.corner_2.y
     rectangle2.attach_to(window)
-    R2_color = rectangle2.fill_color
     x3 = rectangle2.corner_1.x
     y3 = rectangle2.corner_1.y
     x4 = rectangle2.corner_2.x
@@ -295,11 +293,11 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     rectangle1.attach_to(window)
     rectangle2.attach_to(window)
     d_x1= (x2- x1)/2
-    d_x2 =(x3-x4)/2
+    d_x2 =(x4-x3)/2
     d_y1= (y2-y1)/2
     d_y2= (y4-y3)/2
     mid_x1= x1 + d_x1
-    mid_x2 = x3 - d_x2
+    mid_x2 = x3 + d_x2
     mid_y1= y1 + d_y1
     mid_y2=y3 + d_y2
     line = rg.Line(rg.Point(mid_x1, mid_y1), rg.Point(mid_x2, mid_y2))
@@ -311,8 +309,9 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     for k in range(n+1):
         line = rg.Line(rg.Point(mid_x1,mid_y1),rg.Point(mid_x2,mid_y2))
         line.attach_to(window)
-        mid_x1 = mid_x1 + d_x1
-        mid_x2 = mid_x2 + d_x1
+        mid_x1 = mid_x1 - abs(d_x1)
+        print(d_x1)
+        mid_x2 = mid_x2 - abs(d_x1)
         mid_y1 = mid_y1 + d_y1
         mid_y2 = mid_y2 + d_y1
         if k%2 == 1:
@@ -357,7 +356,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
       :type window: rg.RoseWindow
       """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
