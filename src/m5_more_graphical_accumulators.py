@@ -27,8 +27,8 @@ import rosegraphics as rg
 # -----------------------------------------------------------------------------
 def main():
     """ Calls the   TEST   functions in this module. """
-    #run_test_draw_squares_from_circle()
-    #run_test_draw_circles_from_rectangle()
+    run_test_draw_squares_from_circle()
+    run_test_draw_circles_from_rectangle()
     run_test_draw_lines_from_rectangles()
 
 
@@ -312,8 +312,8 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
         mid_x1 = mid_x1 - abs(d_x1)
         print(d_x1)
         mid_x2 = mid_x2 - abs(d_x1)
-        mid_y1 = mid_y1 + d_y1
-        mid_y2 = mid_y2 + d_y1
+        mid_y1 = mid_y1 + abs(d_y1)
+        mid_y2 = mid_y2 + abs(d_y1)
         if k%2 == 1:
             line.color = color1
         if k%2 == 0:
